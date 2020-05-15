@@ -18,6 +18,7 @@ public class Event {
 	private String neighborhood_id;
 	private Integer is_crime;
 	private Integer is_traffic;
+	private int mese;
 	
 	public Event(Long incident_id, Integer offense_code, Integer offense_code_extension, String offense_type_id,
 			String offense_category_id, LocalDateTime reported_date, String incident_address, double geo_lon,
@@ -29,7 +30,9 @@ public class Event {
 		this.offense_code_extension = offense_code_extension;
 		this.offense_type_id = offense_type_id;
 		this.offense_category_id = offense_category_id;
-		this.reported_date = reported_date;
+		
+		this.mese= reported_date.getMonthValue();
+		
 		this.incident_address = incident_address;
 		this.geo_lon = geo_lon;
 		this.geo_lat = geo_lat;
@@ -40,6 +43,17 @@ public class Event {
 		this.is_traffic = is_traffic;
 	}
 	
+	
+	public int getMese() {
+		return mese;
+	}
+
+
+	public void setMese(int mese) {
+		this.mese = mese;
+	}
+
+
 	public Long getIncident_id() {
 		return incident_id;
 	}
